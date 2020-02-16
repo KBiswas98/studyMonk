@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap");
+$font-color: rgba(0, 0, 0, 0.63);
+
+.drawer {
+  // margin: -10px;
+  z-index: 29;
+  padding: 0px;
+  font-family: "Muli", sans-serif;
+  color: $font-color;
+  min-width: 240px;
+  max-width: 15vw;
+  height: 100vh;
+  background: rgb(42, 41, 55);
+  background: linear-gradient(
+    167deg,
+    rgba(42, 41, 55, 1) 0%,
+    rgba(95, 90, 113, 1) 100%
+  );
+  
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.644),
+    0 6px 20px 0 rgba(36, 36, 36, 0.19);
+
+    
+
+  div:first-child {
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.25em;
+    text-align: center;
+    margin: 10px;
+    background-color: transparent;
+  }
+
+  div:nth-child(2) {
+      margin-bottom: 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 30px 0px;
+    color: rgba(255, 255, 255, 0.575);
+    letter-spacing: 0.1em;
+    background: rgb(31, 30, 38);
+    background: radial-gradient(
+      circle,
+      rgba(31, 30, 38, 0.9559174011401436) 28%,
+      rgba(95, 90, 113, 0.116) 100%
+    );
+    img {
+      border-radius: 100px;
+      width: 40%;
+    }
+  }
+
+  a {
+    font-size: 13px;
+    background-color: red;
+    
+    span {
+      padding: 10px 20px;
+      border-radius: 3px;
+    //   width: 00px;
+      display: block;
+      color: #fff;
+      font-weight: 400;
+
+      &:hover {
+        background-color: #f15d2a;
+        font-weight: 800;
+        box-shadow: 0 0px 20px 0 rgba(250, 0, 0, 0.89),
+    0 6px 20px 0 rgba(247, 74, 74, 0.19);
+      }
+    }
+  }
+}

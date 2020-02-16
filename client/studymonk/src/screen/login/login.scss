@@ -68,7 +68,12 @@ a {
         height: 35px;
         width: 70px;
       }
-      input {
+      form {
+        display: flex;
+        flex-flow: column wrap-reverse;
+        align-items: center;
+      }
+      .filds {
         padding: 10px;
         margin: 7px 21px;
         height: 20px;
@@ -80,6 +85,7 @@ a {
 
       .submit {
         margin-top: 10px;
+        max-width: 100px;
         // height: 20px;
         border-radius: 100px;
         background-color: #f15d2a;
