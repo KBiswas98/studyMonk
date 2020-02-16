@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./home.scss";
+import { Link } from "react-router-dom";
 
 export default class Home extends Component {
   render() {
@@ -13,8 +14,12 @@ export default class Home extends Component {
             <div>
               <ul>
                 <li>Price</li>
-                <li>Login</li>
-                <li>Signup</li>
+                <li>
+                  <Link to={"/login"}>Login</Link>
+                </li>
+                <li>
+                  <Link to={"/register"}>Signup</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -30,7 +35,7 @@ export default class Home extends Component {
                 Start driving results across Facebook, Instagram, and Google
                 with a free 14-day trial of AdEspresso.
               </p>
-              <button className="shadow">Start Your Free Trail Now !</button>
+              <button className="shadow button">Start Your Free Trail Now !</button>
             </div>
           </div>
         </section>
@@ -85,7 +90,7 @@ export default class Home extends Component {
                 creation – creating all your campaigns in one place has never
                 been so easy.
               </p>
-              <button className="no_fill">Read More</button>
+              <button className="no_fill button">Read More</button>
             </div>
             <div>
               <img
@@ -93,7 +98,7 @@ export default class Home extends Component {
               />
             </div>
           </div>
-          <div  className="_shadow">
+          <div className="_shadow">
             <div>
               <h3>Manage</h3>
               <p>
@@ -101,7 +106,7 @@ export default class Home extends Component {
                 spent switching from one Ads Manager to the other, more time
                 making money.
               </p>
-              <button className="no_fill">Read More</button>
+              <button className="no_fill button">Read More</button>
             </div>
             <div>
               <img
@@ -109,14 +114,14 @@ export default class Home extends Component {
               />
             </div>
           </div>
-          <div  className="_shadow">
+          <div className="_shadow">
             <div>
               <h3>Analyze</h3>
               <p>
                 Web, PDF, Email, Excel – Get the actionable insights you need,
                 when you need them.
               </p>
-              <button className="no_fill">Read More</button>
+              <button className="no_fill button">Read More</button>
             </div>
             <div>
               <img
@@ -124,14 +129,14 @@ export default class Home extends Component {
               />
             </div>
           </div>
-          <div  className="_shadow">
+          <div className="_shadow">
             <div>
               <h3>Collaborate</h3>
               <p>
                 Get easy access to your clients’ accounts and have them approve
                 your campaigns before going live. In one click.
               </p>
-              <button className="no_fill">Read More</button>
+              <button className="no_fill button">Read More</button>
             </div>
             <div>
               <img
@@ -139,14 +144,14 @@ export default class Home extends Component {
               />
             </div>
           </div>
-          <div  className="_shadow"> 
+          <div className="_shadow">
             <div>
               <h3>Learn</h3>
               <p>
                 Take your marketing skills to the next level with the most
                 trustworthy resources at your fingertips.
               </p>
-              <button className="no_fill">Read More</button>
+              <button className="no_fill button">Read More</button>
             </div>
             <div>
               <img
@@ -156,34 +161,34 @@ export default class Home extends Component {
           </div>
         </section>
         <section className="footer">
-            <ul>
-              <li>LEARN MORE</li>
-              <li>About Us</li>
-              <li>About Us</li>
-              <li>About Us</li>
-              <li>About Us</li>
-            </ul>
-            <ul>
-              <li>EDUCATION</li>
-              <li>Blog</li>
-              <li>Blog</li>
-              <li>Blog</li>
-              <li>Blog</li>
-            </ul>
-            <ul>
-              <li>FROM THE BLOG</li>
-              <li>About Us</li>
-              <li>About Us</li>
-              <li>About Us</li>
-              <li>About Us</li>
-            </ul>
-            <ul>
-              <li>FOLLOW US</li>
-              <li>About Us</li>
-              <li>About Us</li>
-              <li>About Us</li>
-              <li>About Us</li>
-            </ul>
+          <ul>
+            <li>LEARN MORE</li>
+            <li>About Us</li>
+            <li>About Us</li>
+            <li>About Us</li>
+            <li>About Us</li>
+          </ul>
+          <ul>
+            <li>EDUCATION</li>
+            <li>Blog</li>
+            <li>Blog</li>
+            <li>Blog</li>
+            <li>Blog</li>
+          </ul>
+          <ul>
+            <li>FROM THE BLOG</li>
+            <li>About Us</li>
+            <li>About Us</li>
+            <li>About Us</li>
+            <li>About Us</li>
+          </ul>
+          <ul>
+            <li>FOLLOW US</li>
+            <li>About Us</li>
+            <li>About Us</li>
+            <li>About Us</li>
+            <li>About Us</li>
+          </ul>
         </section>
       </div>
     );

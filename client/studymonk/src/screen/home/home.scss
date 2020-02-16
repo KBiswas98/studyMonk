@@ -1,19 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap");
 @import "../../constant/responsive.scss";
 $max-Width: 1200px;
+$font-color: rgba(0, 0, 0, 0.63);
 
 .home {
   font-family: "Muli", sans-serif;
-  color: rgba(0, 0, 0, 0.63);
+  color: $font-color;
   margin: -8px;
   margin-top: 25px;
 
   @include tablet {
       margin: 5px 0px;
   }
+
+
 }
 
-button {
+
+
+.button {
   // height: 30px;
   border-radius: 100px;
   background-color: #f15d2a;
@@ -61,6 +66,12 @@ button {
         padding: 0px;
         li {
           width: 60px;
+            color: black;
+            a{
+
+              text-decoration: none;
+              color: $font-color;
+            }
         }
       }
     }
