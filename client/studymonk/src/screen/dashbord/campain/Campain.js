@@ -2,17 +2,37 @@ import React, { Component } from "react";
 import "./campain.scss";
 import axios from "axios";
 
+
+
 export default class Campain extends Component {
   constructor(props) {
     super(props);
     this.state = {
       campainName: "",
       campainImage: null,
+      campinPlatfrom: "facebook",
       tableData: []
     };
     this.handelCampainname = this.handelCampainname.bind(this);
     this.handelSubmit = this.handelSubmit.bind(this);
     this.handelCampainImgae = this.handelCampainImgae.bind(this);
+    this.handelPlatfromchange = this.handelPlatfromchange.bind(this);
+  }
+
+  componentDidMount() {
+    this._fetchRecords();
+  }
+
+  _fetchRecords = () => {
+    axios
+      .get("http://localhost:5000/campain/")
+      .then(result => {
+        console.log(result);
+        this.setState({ tableData: result.data });
+      })
+      .then(err => {
+        console.log(err);
+      });
   }
 
   handelCampainname(event) {
@@ -20,23 +40,38 @@ export default class Campain extends Component {
   }
 
   handelCampainImgae(event) {
-    this.setState({ campainImage: event.target.files });
+    this.setState({ campainImage: event.target.files[0] });
+  }
+
+  handelPlatfromchange(platfrom) {
+    this.setState({ campinPlatfrom: platfrom });
   }
 
   handelSubmit(event) {
-      console.log(this.state)
+    console.log(this.state);
     event.preventDefault();
+
     const formData = new FormData();
-    // formData.append('name', this.state.campainName);
-    formData.append('file', this.state.campainImage[0]);
+    formData.append("campain_name", this.state.campainName);
+    formData.append("image", this.state.campainImage);
+    formData.append("platfrom", this.state.campinPlatfrom);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    };
+
     axios
-      .post("http://localhost:5000/campain/add", {name: this.state.campainName, image: this.state.campainImage[0]})
+      .post("http://localhost:5000/campain/add", formData, config)
       .then(res => {
         console.log(res);
+        this._fetchRecords();
       });
   }
 
   render() {
+    let counter = 0;
     return (
       <div className="campain_holder">
         <div className="campain">
@@ -59,6 +94,31 @@ export default class Campain extends Component {
                   onChange={this.handelCampainImgae}
                 />
               </label>
+
+              <label>Platfrom</label>
+              <span>
+                <input
+                  type="button"
+                  onClick={() => this.handelPlatfromchange("facebook")}
+                  className={
+                    this.state.campinPlatfrom === "facebook"
+                      ? "onebutton active "
+                      : "onebutton"
+                  }
+                  value="Facebook"
+                />
+                <input
+                  type="button"
+                  onClick={() => this.handelPlatfromchange("twitter")}
+                  className={
+                    ("onebutton",
+                    this.state.campinPlatfrom === "twitter"
+                      ? "onebutton active "
+                      : "onebutton")
+                  }
+                  value="Twitter"
+                />
+              </span>
               <input className="submit" type="submit" value="Add Campain" />
             </form>
           </div>
@@ -72,39 +132,18 @@ export default class Campain extends Component {
                 <th>Create date</th>
                 <th>Platfrom</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>Samsung</td>
-                <td>
-                  <img
-                    src={require("../../../assets/images/undraw_social_girl_562b.svg")}
-                  />
-                </td>
-                <td>5/8/9</td>
-                <td>Facebook</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>msung</td>
-                <td>
-                  <img
-                    src={require("../../../assets/images/undraw_social_girl_562b.svg")}
-                  />
-                </td>
-                <td>5/8/9</td>
-                <td>Facebook</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>amsung</td>
-                <td>
-                  <img
-                    src={require("../../../assets/images/undraw_social_girl_562b.svg")}
-                  />
-                </td>
-                <td>25/8/9</td>
-                <td>Twitter</td>
-              </tr>
+
+              {this.state.tableData.map(row => (
+                <tr>
+                  <td>{++counter}</td>
+                  <td>{row.name}</td>
+                  <td>
+                    <img src={row.image_path} />
+                  </td>
+                  <td>{row.date.replace(/T/, " ").replace(/\..+/, "")}</td>
+                  <td>{row.platfrom}</td>
+                </tr>
+              ))}
             </table>
           </div>
         </div>

@@ -17,6 +17,22 @@ $font-color: rgba(0, 0, 0, 0.63);
     0 6px 20px 0 rgba(248, 248, 248, 0.19);
 }
 
+.onebutton {
+  margin: 5px 1px;
+  height: 25px;
+  border: 1px solid red;
+  border-radius: 2px;
+  // color: #ffffff;
+  // padding: 5px;
+  letter-spacing: 0.09em;
+}
+
+.active {
+  background-color: red;
+  border: 1px solid red;
+  color: #ffffff;
+}
+
 .media {
   .fils {
     display: none;
